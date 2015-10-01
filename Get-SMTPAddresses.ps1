@@ -15,13 +15,13 @@ $evt_string | Out-file $fileObject -encoding ascii -Append
 
  
 
-#Get the proxy info
+#Get the proxy addresses info
 
 Get-Recipient -Resultsize unlimited -RecipientType Usermailbox | select DisplayName,EmailAddresses | Export-csv -notypeinformation $fileObjectEmail -append -encoding utf8
 
  
 
-#Read output into a variable
+#Read outputs into a variable
 
 $file = Get-Content $EmailTempfile
 
@@ -31,7 +31,7 @@ $evt_string=""
 
  
 
-#Split the proxy data into individual addresses
+#Split the proxy data into individual email addresses
 
 $csvobj = ($file[$i] -split ",")
 
@@ -41,7 +41,7 @@ $GetEmail = $EmailAddr -replace '"', '' -split(' ')
 
  
 
-#write out the display name and email address (One person can have several), filter for smtp only and exclude onmicrosoft.com addresses
+#Write out the display name and email addresses, filters for SMTP only, and removes onmicrosoft.com addresses
 
 for($k=0;$k -lt $GetEmail.count;$k++){
 
