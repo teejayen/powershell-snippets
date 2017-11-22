@@ -5,7 +5,7 @@ function Get-ADUsersLastLogon()
   $DCs = Get-ADDomainController -Filter {Name -like "*"}
   $Users = Get-ADUser -Filter *
   $time = 0
-  $exportFilePath = ":\lastLogon.csv"
+  $exportFilePath = "c:\lastLogon.csv"
   $columns = "Name,Username,Last Logon"
 
   Out-File -filepath $exportFilePath -force -InputObject $columns
