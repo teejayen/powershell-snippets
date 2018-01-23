@@ -1,2 +1,2 @@
 Import-Module ActiveDirectory
-(get-aduser -SearchBase "OU=Users,OU=Company,DC=domain,DC=local" -filter *|where {$_.enabled -eq "True"}).count
+(Get-ADUser -SearchBase "OU=Users,OU=Company,DC=domain,DC=local" -filter *| Where-Object {$_.enabled -eq "True"}).count

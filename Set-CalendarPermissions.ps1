@@ -1,1 +1,1 @@
-Get-Mailbox | ForEach-Object {Get-MailboxFolderPermission $_”:\calendar”} | Where {$_.User -like “Default”} | Select Identity, User, AccessRights
+Get-Mailbox | ForEach-Object {Get-MailboxFolderPermission $_”:\calendar”} | Where-Object {$_.User -like “Default”} | Select-Object Identity, User, AccessRights

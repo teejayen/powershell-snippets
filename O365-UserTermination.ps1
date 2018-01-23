@@ -2,7 +2,7 @@ $User = Read-Host -Prompt "Enter terminated username"
 $Manager = Read-Host -Prompt "Enter manager / forwarding address"
  
 $Mailbox = Get-Mailbox $User
-$Groups = Get-DistributionGroup | where { (Get-DistributionGroupMember $_.Name | foreach {$_.Id}) -contains $Mailbox.Id }
+$Groups = Get-DistributionGroup | Where-Object { (Get-DistributionGroupMember $_.Name | ForEach-Object {$_.Id}) -contains $Mailbox.Id }
 $Groups | ForEach-Object { Remove-DistributionGroupMember $_.DisplayName -Member $Mailbox.Id -BypassSecurityGroupManagerCheck -Confirm:$false -Verbose }
   
 Set-Mailbox -Identity $User -HiddenFromAddressListsEnabled $True -Verbose

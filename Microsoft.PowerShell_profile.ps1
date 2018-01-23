@@ -26,5 +26,5 @@ Function Get-DinoPass {
 Clear-Host
 Set-ExecutionPolicy Bypass -Force
 $autoload="%UserProfile%\Documents\WindowsPowerShell\Scripts\autoload"
-Get-ChildItem "${autoload}\*.ps1" | %{.$_} 
+Get-ChildItem "${autoload}\*.ps1" | For Each-Object {.$_} 
 Write-Host "Custom PowerShell Environment Loaded" 

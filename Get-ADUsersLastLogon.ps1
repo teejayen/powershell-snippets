@@ -2,7 +2,7 @@ Import-Module ActiveDirectory
 
 function Get-ADUsersLastLogon()
 {
-  $DCs = Get-ADDomainController -Filter {Name -like "*"}
+  $DomainController = Get-ADDomainController -Filter {Name -like "*"}
   $Users = Get-ADUser -Filter *
   $time = 0
   $exportFilePath = "c:\lastLogon.csv"
@@ -12,9 +12,9 @@ function Get-ADUsersLastLogon()
 
   foreach($User in $Users)
   {
-    foreach($DC in $DCss)
+    foreach($DomainController in $DomainControllers)
     { 
-      $hostname = $DC.HostName
+      $hostname = $DomainController.HostName
       $currentUser = Get-ADUser $user.SamAccountName | Get-ADObject -Server $hostname -Properties lastLogon
 
       if($currentUser.LastLogon -gt $time) 
