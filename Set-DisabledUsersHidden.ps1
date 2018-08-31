@@ -1,0 +1,1 @@
+Get-ADUser -Filter * | Where-Object {$_.Enabled -eq $False} | Set-AdUser -Replace @{msExchHideFromAddressLists="TRUE"}
