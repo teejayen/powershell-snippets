@@ -1,1 +1,5 @@
 MerrottsArchiver.ps1
+Get-SecureScore.ps1
+Clear-Tickets.ps1
+Get-HIBPPasswords.ps1
+Get-O365AdministrativeUsers.ps1
