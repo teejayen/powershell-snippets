@@ -3,9 +3,9 @@ $Customers = Import-CSV C:\temp\rdpcustomers.csv
 foreach ($Customer in $Customers){
     Write-Host "Testing $($Customer.Name) - $($Customer.PublicIP) now..."
 	$RDP = Test-NetConnection -ComputerName $($Customer.PublicIP) -Port 3389 -ErrorAction SilentlyContinue -WarningAction SilentlyContinue 
-
+	$Result = $null
 	if($RDP.TcpTestSucceeded){
-    Write-Host "Port 3389 is listening" -ForegroundColor Red
+	Write-Host "Port 3389 is listening" -ForegroundColor Red
 	$Result = "Listening"
 	}
 
@@ -21,8 +21,8 @@ foreach ($Customer in $Customers){
 			Result = $Result
 		}
 		
-		$ruleObject = New-Object PSObject -Property $ResultsExport
-		$ruleObject | Export-Csv C:\temp\rdpcustomersresult.csv -NoTypeInformation -Append
+		$ResultObject = New-Object PSObject -Property $ResultsExport
+		$ResultObject | Export-Csv C:\temp\rdpcustomersresult.csv -NoTypeInformation -Append
 	}
 
 }
