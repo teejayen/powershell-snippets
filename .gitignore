@@ -5,4 +5,5 @@ Get-O365AdministrativeUsers.ps1
 Get-O365ExternalForwardingRules.ps1
 Get-O365SecureScore.ps1
 Get-O365SharedMailboxes.ps1
+Set-O365ATP.ps1
 Set-MailboxAuditing.ps1
