@@ -2,7 +2,7 @@ $Credentials = Get-Credential
 $SafeAttachmentsPolicyName = "aIT - Safe Attachments Policy"
 $SafeAttachmentsPolicyDescription = "aIT Safe Attachments Policy V1.0 - Block Delivery"
 $SafeAttachmentsRuleName = "All Recipients"
-$RedirectTo = "atpmailbox@answersit.com.u"
+$RedirectTo = "atpmailbox@answersit.com.au"
 $SafeLinksPolicyName = "aIT - Safe Links Policy"
 $SafeLinksPolicyDescription = "aIT Safe Links Policy V1.0"
 
