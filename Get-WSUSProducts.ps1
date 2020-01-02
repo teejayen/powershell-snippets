@@ -1,0 +1,1 @@
+(Get-WsusServer $env:computername -PortNumber 8530).GetSubscription().GetUpdateCategories() | select Title
